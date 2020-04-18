@@ -1,0 +1,9 @@
+.itembox{ border:1px dashed #ccc; padding-left: 30px;box-shadow:0 1px 6px #333;margin-top:15px}
+
+
+/*:global 设为全局样式（不被模块化） */
+/*:local 设为模块化样式（默认，可以不写） */
+/* 模块化值针对 id,class选择器  标签选择器不生效 */
+:global(.test){
+    font-style: italic;
+}

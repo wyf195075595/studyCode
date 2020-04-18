@@ -1,0 +1,18 @@
+{
+  "name": "back_blog",
+  "version": "1.0.0",
+  "description": "博客后台",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wyf",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.5",
+    "multer": "^1.4.2"
+  }
+}
