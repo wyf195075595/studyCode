@@ -1,0 +1,159 @@
+.layui-layer-content {
+    //报表弹窗内容
+    #bbBox{
+        width:96%;
+        height: 90%;
+        overflow-y: scroll;
+        margin: 0 auto;
+        background: skyblue;
+        .tableTools{
+          height:.4rem;
+          width: 100%;
+          // background-color: red;
+          position: relative;
+          .downLoad{
+            width: .4rem;
+            height: .4rem;
+            // background: white;
+            position: absolute;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i{
+              font-size: .35rem;
+            }
+          }
+        }
+        table{
+          width:100%;
+          height: 100%;
+          border:1px solid white;
+          
+          .firstLine{
+            td:nth-child(1){
+              width: 10%;
+            }
+            td:nth-child(2){
+              width: 20%;
+            }
+            td:nth-child(3){
+              width: 40%;
+            }
+            td:nth-child(4){
+              width: 10%;
+            }
+            td:nth-child(5){
+              width: 20%;
+            }
+  
+          }
+        }
+        tr{
+          width: 100%;
+        }
+        td{
+           text-align: center;
+           border:1px solid white;
+           font-size: 16px;
+        }
+    }
+    /*只能决策*/
+    #jcContainer {
+      width: 90%;
+      margin: 0 auto;
+      
+      #jc-box {
+        display: flex;
+        height: 90%;
+        border: 1px solid #2589a3;
+        box-sizing: border-box;
+        table{
+          width: 100%;
+          height: 100%;
+          td{
+            border: 1px solid skyblue;
+            box-sizing: border-box;
+            text-align: center;
+          }
+          .detailbg{
+            width: 10%;
+          }
+          .content{
+            width: 100%;
+            height: 100%;
+            text-align: left;
+            overflow-y: auto;
+
+            p{
+              width: 100%;
+              height: 100%;
+              padding-top: .1rem;
+              text-indent: 2em;
+              box-sizing: border-box;
+            }
+          }
+          .zong{
+            width: 8%;
+            div{
+              width: 100%;
+              height: auto;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              writing-mode: vertical-lr;
+            }
+          }
+        }
+  
+      }
+    }
+}
+
+.layui-layer-content #jcContainer #jc-box > div:nth-child(1) > div:nth-child(1),
+.layui-layer-content #jcContainer #jc-box > div:nth-child(1) > div:nth-child(2) {
+  height: 10%;
+  border-bottom: 1px solid #2589a3;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.layui-layer-content #jcContainer #jc-box > div:nth-child(2) > div:nth-child(1),
+.layui-layer-content #jcContainer #jc-box > div:nth-child(2) > div:nth-child(2) {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #2589a3;
+  box-sizing: border-box;
+}
+.layui-layer-content #jcContainer #jc-box > div:nth-child(2) > div:nth-child(4),
+.layui-layer-content #jcContainer #jc-box > div:nth-child(2) > div:nth-child(5) {
+  display: flex;
+  height: 20%;
+}
+.layui-layer-content #jcContainer #jc-box > div:nth-child(2) > div:nth-child(4) > div,
+.layui-layer-content #jcContainer #jc-box > div:nth-child(2) > div:nth-child(5) > div {
+  display: flex;
+}
+.layui-layer-content #jcContainer #jc-box > div:nth-child(2) > div:nth-child(4) > div:nth-child(1),
+.layui-layer-content #jcContainer #jc-box > div:nth-child(2) > div:nth-child(5) > div:nth-child(1) {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #2589a3;
+  border-right: 1px solid #2589a3;
+  box-sizing: border-box;
+}
+.layui-layer-content #jcContainer #jc-box > div:nth-child(2) > div:nth-child(4) > div:nth-child(2),
+.layui-layer-content #jcContainer #jc-box > div:nth-child(2) > div:nth-child(5) > div:nth-child(2) {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #2589a3;
+  box-sizing: border-box;
+  overflow: auto;
+}
