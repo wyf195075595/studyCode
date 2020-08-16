@@ -1,0 +1,31 @@
+/*
+*author:wyf
+*created at 2020/6/6
+*/
+.jz,
+.warp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jz > div:nth-child(1):hover,
+.warp > div:nth-child(1):hover {
+  background-color: red;
+}
+.warp {
+  height: 300px;
+  background-color: skyblue;
+}
+.warp .sjx {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 40px;
+  border-color: transparent #2d2d31 transparent transparent;
+}
+.warp .circle {
+  width: 40px;
+  height: 40px;
+  background-color: yellow;
+  border-radius: 50%;
+}

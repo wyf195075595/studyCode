@@ -1,0 +1,33 @@
+.sjx(@_,@w:40px,@c:pink){//混合+匹配模式
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+.sjx(L,@w:40px,@c:blue){//默认参数
+    border-width: @w;
+    border-color: transparent @c transparent transparent;
+    // &:hover{
+    //     border-right-color: green;
+    // }
+}
+.sjx(R,@w:40px,@c:blue){
+    border-width: @w;
+    border-color: transparent  transparent transparent @c;
+    &:hover{
+        border-left-color: green;
+    }
+}
+.sjx(B,@w:40px,@c:blue){
+    border-width: @w;
+    border-color: @c transparent transparent transparent;
+    &:hover{
+        border-top-color: green;
+    }
+}
+.sjx(T,@w:40px,@c:blue){
+    border-width: @w;
+    border-color: transparent  transparent @c transparent;
+    &:hover{
+        border-bottom-color: green;
+    }
+}

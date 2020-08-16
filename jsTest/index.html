@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+            <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+                <link href="./icon.ico" rel="icon"></link>
+                    <title>av天堂</title>
+<style>
+    .pain-toast{
+            width: 400px;
+            height: 50px;
+            background: darkgray;
+            position: fixed;
+            top: 5%;
+            right: 5%;
+
+        }
+        #box{
+            position: fixed;
+            height: 100%;
+            width: 30%;
+            top: 0;
+            left: 0;
+            background: red;
+        }
+        header{
+            width:100%;
+            height:80px;
+            background-color:red;
+            color:white;
+        }
+</style>
+
+
+    </head>
+    <body>
+        <!-- <div id="box"></div> -->
+        <div contextmenu="mymenu">强强强强
+            <menu type="context" id="mymenu">
+              <menuitem label="Refresh"></menuitem>
+              <menuitem label="Twitter"></menuitem>
+            </menu>
+        </div>
+        <header>
+            <p>
+                如果想学习 AJAX，那么您必须熟悉 XML
+                <wbr>
+                    Http
+                    <wbr>
+                        Request 对象。
+                    </wbr>
+                </wbr>
+            </p>
+        </header>
+        <section>
+            <p>我们在每天早上 <time>9:00</time> 开始营业。</p>
+            <p>我在 <time datetime="2008-02-14">情人节</time> 有个约会。</p>
+            <article>
+                <details>
+                    <summary>HTML 5</summary>
+                    This document teaches you everything you have to learn about HTML 5.
+                </details>
+                <audio controls>
+                   <source src="horse.ogg" type="audio/ogg">
+                   <source src="horse.mp3" type="audio/mpeg">
+                 Your browser does not support the audio element.
+                </audio>
+                <progress value="22" max="100"></progress>
+                <meter value="3" min="0" max="10">十分之三</meter>
+                <meter value="0.6">60%</meter>
+                <ruby>
+                    漢 <rt> ㄏㄢˋ </rt>
+                </ruby>---
+                <ruby>
+                    漢 <rt><rp>(</rp>ㄏㄢˋ<rp>)</rp></rt>
+                </ruby>---
+                <ruby>
+                    漢 <rt><rp>(</rp>ㄏㄢˋ<rp>)</rp></rt>
+                </ruby>
+
+            </article>
+            <aside>
+              <canvas id="myCanvas"></canvas>
+
+            </aside>
+        </section>
+        <section>
+            <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+               <input type="range" id="a" value="50">100
+               +<input type="number" id="b" value="50">
+               =<output name="x" for="a b"></output>
+            </form>
+            <select>
+              <optgroup label="Swedish Cars">
+                <option value ="volvo">Volvo</option>
+                <option value ="saab">Saab</option>
+              </optgroup>
+
+              <optgroup label="German Cars">
+                <option value ="mercedes">Mercedes</option>
+                <option value ="audi">Audi</option>
+              </optgroup>
+            </select>
+            <p>Do not forget to buy <mark>milk</mark> today.</p>
+              <fieldset>
+                <legend>health information</legend>
+                height: <input type="text" />
+                weight: <input type="text" />
+              </fieldset>
+            a dozen is <del>20</del> <ins>12</ins> pieces
+        </section>
+        <section>
+            <figure>
+                <p>黄浦江上的的卢浦大桥</p>
+                <img src="bz1.jpg" width="350"     height="234" />
+            </figure>
+            <article>
+                <ul>
+                    <li>Username <bdi>Bill</bdi>:80 points</li>
+                    <li>Username <bdi>Steve</bdi>: 78 points</li>
+                </ul>
+            </article>
+        </section>
+        <footer>
+            <details>
+                <summary>Copyright 2011.</summary>
+                <p>All pages and graphics on this web site are the  property of W3School.</p>
+            </details>
+          <p>Posted by: W3School</p>
+          <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+        </footer>
+
+    </body>
+    <script src="./test1.js">
+    </script>
+    <script>
+    var x = document.getElementById('mymenu')
+    getLocation()
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+    console.log('位置：',position);
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br />Longitude: " + position.coords.longitude;
+  }
+
+var canvas=document.getElementById('myCanvas');
+var ctx=canvas.getContext('2d');
+ctx.fillStyle='#FF0000';
+ctx.fillRect(0,0,80,100);
+
+        new Toast().alert('太好热')
+    new Toast().hide(3000)
+
+    var obj = {
+        name:1,
+        age:2
+    }
+    var obj = new Object()
+    console.log(Object.prototype._proto_)
+    </script>
+</html>

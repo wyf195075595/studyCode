@@ -1,0 +1,22 @@
+/*
+*author:wyf
+*created at 2020/6/6
+*/
+@color:skyblue;//变量
+@import './00.less';//导入其他less
+@import './jz.less';//导入其他less
+.warp{
+    height: 200+100px;//计算属性
+    background-color: @color;
+    &:extend(.jz all);
+    .sjx{//嵌套
+        .sjx(L,@c:rgb(45, 45, 49));//命名参数
+    } 
+    .circle{
+        width: 40px;
+        height: 40px;
+        background-color: yellow;
+        border-radius: 50%;
+    }
+
+}

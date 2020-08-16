@@ -1,0 +1,58 @@
+.box-warp {
+  width: 100%;
+  height: 1000px;
+  background: skyblue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.box-warp .box1 {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.box-warp .box1 > div:nth-child(1) {
+  flex: 1 1 500px  ;
+  background: yellow;
+}
+.box-warp .box1 > div:nth-child(2) {
+  height: 100%;
+  flex: 2 1 800px;
+  display: flex;
+}
+.box-warp .box1 > div:nth-child(2) .jgg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: space-around;
+}
+.box-warp .box1 > div:nth-child(2) .jgg > div {
+  width: 30%;
+  height: 30%;
+  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 24px;
+  transition: 0.5s all;
+}
+.box-warp .box1 > div:nth-child(2) .jgg > div:hover {
+  background-color: skyblue;
+  font-size: 60px;
+}
+.box-warp .box1 > div:nth-child(2) .jgg > div:nth-child(4) {
+  order: 2;
+}
+.box-warp .box1 > div:nth-child(2) .jgg > div:nth-child(5) {
+  order: 1;
+}
+.box-warp .box1 > div:nth-child(3) {
+  flex: 1 1 300px;
+  background: red;
+}

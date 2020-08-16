@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gridTest</title>
+    <link rel="stylesheet" href="./GridManager_2.11.13/css/gm.css">
+    <style>
+        body{
+            background: #ccc;
+        }
+        table{
+        }
+        .table-warp{
+            width: 60%;
+            height:500px;
+            background:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-warp">
+        <table grid-manager='table-demo-baseCode'></table>
+    </div>
+
+
+<script src="./GridManager_2.11.13/js/gm.js"></script>
+<script>
+    var responseData = {
+    "data":[
+        {
+            name: "baukh",
+            age: 28,
+            createDate: "2015-03-12",
+            url:'www.a.com',
+            info: "野生前端程序",
+            id:'001'
+            // operation: "修改"
+        },
+        {
+            name: "baukh",
+            age: 21,
+            createDate: "2015-03-12",
+            url:'www.b.com',
+            info: "野生前端程序野生前端程序野生前端程序野生前端程序野生前端程序野生前端程序野生前端程序野生前端程序野生前端程序",
+            id:'002'
+            // operation: "修改"
+        },
+        {
+            name: "baukh",
+            age: 25,
+            createDate: "2015-03-16",
+            url:'www.b.com',
+            info: "野生前端程序野生前端程序野生前端程序野生前端程序野生前端程序野生前端程序野生前端程序野生前端程序野生前端程序",
+            id:'002'
+            // operation: "修改"
+        }
+    ],
+    "totals": 8  // 分页必须存在的属性， 属性名可通过配置项totalsKey进行变更
+}
+
+var responseData1 = {
+    "data":[
+        {
+            name: "baukh",
+            age: "28",
+            createDate: "2015-03-12",
+            url:'www.a.com',
+            info: "野生前端程序",
+            id:'001'
+            // operation: "修改"
+        }
+    ],
+    "totals": 8  // 分页必须存在的属性， 属性名可通过配置项totalsKey进行变更
+}
+    const TYPE_MAP = [
+    {
+        value:'浏览器的工作原理',
+        text:'浏览器的工作原理'
+    },
+    {
+        value:'esLint官网',
+        text:'esLint官网'
+    },
+    {
+        value:'Antv',
+        text:'Antv'
+    },
+    {
+        value:'Homebrew',
+        text:'Homebrew'
+    },
+    {
+        value:'angluarjs',
+        text:'angluarjs'
+    },
+    {
+        value:'ECMAScript支持查询',
+        text:'ECMAScript支持查询'
+    },
+    {
+        value:'前端浏览器支持查询',
+        text:'前端浏览器支持查询'
+    },
+    ];
+
+    var table = document.querySelector('table[grid-manager]');
+    console.log(table);
+    /**
+     * 初始化搜索区域
+     */
+
+    function initSearch(table) {
+        // 渲染下拉框
+        var typeSelect = document.querySelector('.search-area select[name="type"]');
+        console.log('渲染下拉框',typeSelect)
+
+        for(let key in TYPE_MAP) {
+            const option = document.createElement('option');
+            option.value = key;
+            option.innerText = TYPE_MAP[key];
+            typeSelect.appendChild(option);
+        }
+
+        // // 绑定搜索事件
+        // document.querySelector('.search-action').addEventListener('click', function () {
+        //     var _query = {
+        //         title: document.querySelector('[name="title"]').value,
+        //         type: document.querySelector('[name="type"]').value,
+        //         content: document.querySelector('[name="content"]').value
+        //     };
+        //     table.GM('setQuery', _query, function () {
+        //         console.log('setQuery执行成功');
+        //     });
+        // });
+
+        // // 绑定重置
+        // document.querySelector('.reset-action').addEventListener('click', function () {
+        //     document.querySelector('[name="title"]').value = '';
+        //     document.querySelector('[name="type"]').value = '-1';
+        //     document.querySelector('[name="content"]').value = '';
+        // });
+    }
+    // initSearch(table)
+
+    table.GM({
+        gridManagerName: 'demo-baseCode',
+        supportAjaxPage: false,//分页
+        width:'100%',
+        height:'100%',
+        // useNoTotalsMode:true,//是否使用总条数
+        pageSize:8,
+        asyncTotals: {//异步分页
+        // 加载时的占位文本，可使用html标签
+        text: '<span>加载中...</span>',
+        // 处理函数，需要返回Promise对像
+        // 参数settings: 当前实例化对像
+        // 参数params: 当前使用的请求参
+        handler: function(settings, params) {
+            return new Promise(resolve => {
+                    resolve(100);  // 模拟返回100总条数
+            });
+        }
+        },
+        //         1、single: 升降序事件独立，如: 点击向上箭头为升序，再次点击则取消。
+
+        // 2、overall: 升降序事件合并, 点击任一箭头将会切换升降序，首次点击为降序。
+        sortMode:'overall',
+        supportMoveRow: true,//移动行
+        supportCheckbox:false,
+        disableLine:true,//禁止分割线
+        disableBorder:true,//禁止边框
+        // query: {pluginId: 1},
+        // topFullColumn: {
+        // template: function(){//通栏
+        //         return '<div style="padding: 12px; text-align: center;">'
+        //                 +'快速、灵活的对Table标签进行实例化，让Table标签充满活力。该项目已开源, '
+        //                 +'<a target="_blank" href="https://github.com/baukh789/GridManager">点击进入</a>github'
+        //                 +'</div>';
+        //     }
+        // },
+        ajaxData: 'https://www.lovejavascript.com/learnLinkManager/getLearnLinkList',
+        // ajaxData:responseData ,
+        ajaxType: 'POST',
+        columnData: [
+            {
+                key: 'name',
+                text: '名称',
+                remind: 'the name',
+                sorting: '',
+                    // 表头筛选条件, 该值由用户操作后会将选中的值以{key: value}的形式覆盖至query参数内。非必设项
+                filter: {
+                    // 筛选条件列表, 数组对象。格式: [{value: '1', text: 'HTML/CSS'}],在使用filter时该参数为必设项。
+                    option: TYPE_MAP
+                    // [
+                    //     {
+                    //         value:'1',
+                    //         text:'Antv'
+                    //     },
+                    //     {
+                    //         value:'2',
+                    //         text:'anglurjs'
+                    //     },
+                    // ]
+                    ,
+                    // 筛选选中项，字符串, 未存在选中项时设置为''。 在此设置的选中的过滤条件将会覆盖query
+                    // selected: '3',
+                    // 否为多选, 布尔值, 默认为false。非必设项
+                    isMultiple: false
+                },
+            },
+            {
+                key: 'age',
+                text: '年龄',
+                remind: 'the age',
+                sorting:''
+            },
+            {
+                key: 'info',
+                text: '说明',
+                remind: 'the info',
+                sorting: '',
+                template: function(info, rowObject){
+                    // console.log(info,rowObject);
+						return `<span class="actionInfo" title="${info}">${info}</span>`;
+				}
+            },
+            {
+                key: 'createDate',
+                text: '创建时间',
+                merge: 'text',
+                align:'center'
+            },
+            {
+                key: 'url',
+                text: 'url'
+            },
+            {
+                key: 'operation',
+                text: '操作',
+                fixed: 'right',
+                width:'100px',
+                template: function(operation, rowObject){
+                    // console.log(operation,rowObject);
+						return `<span class="action">修改</span><span class="action">删除</span>`;
+				}
+            }
+        ]
+    });
+
+    // 使用TableElement.GM方式:
+    jTool(table).on('click','.action',(e)=>{
+        console.log(e.target.parentNode.parentNode);
+        var row = GM.getRowData(table, e.target.parentNode.parentNode)
+        console.log(e.target.innerText)
+        if(e.target.innerText == '修改'){
+            GM.updateRowData(table, 'id', {id: row.id, name: '布莱恩科比'+row.id});
+        }else{
+            console.log('删除');
+            GM.setAjaxData(table, responseData1);
+        }
+
+    })
+    jTool(table).on('click','.actionInfo',(e)=>{
+        console.log(e.target.parentNode.parentNode);
+        var row = GM.getRowData(table, e.target.parentNode.parentNode)
+        console.log(e.target.innerText)
+
+
+    })
+
+</script>
+</body>
+</html>

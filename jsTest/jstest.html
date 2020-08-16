@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style type="text/css" media="screen">
+
+        *{
+            padding:0;
+            margin:0;
+        }
+        #box{
+            width:100%;
+            /* height:; */
+            background-color:skyblue;
+            overflow-y:scroll;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>10000</p>
+        <button type="button" id="ck">戳我一下</button>
+    </div>
+</body>
+<script >
+    window.onload = function(){
+        var box = document.getElementById('box')
+            box.style.height = document.documentElement.clientHeight + 'px'
+
+        window.addEventListener('resize', ()=>{
+            console.log('窗口变化了',document.documentElement.clientHeight)
+            box.style.height = document.documentElement.clientHeight + 'px'
+        }, false)
+    }
+    // console.log("会不会报错呢",clearTimeout(null))
+    var ck = document.getElementById('#ck')
+    // addEventListener('click',debounce(clickMe,500),false)
+    addEventListener('click',throttle(clickMe,2000),false)
+
+    //throttle
+    function clickMe(){
+        console.log('clickme')
+    }
+    // 防抖函数
+    function debounce(fn,await){
+        var timer = null
+        return function(){
+            console.log(this.arguments)
+            clearTimeout(timer)
+            timer = setTimeout(()=>{
+                console.log(this)
+                fn.apply(this.arguments)
+            },await)
+
+        }
+
+    }
+    //节流函数
+    function throttle(fn,await){
+        var isUse = true
+        return function(){
+            if(!isUse){return false}
+            isUse = false
+            setTimeout(()=>{
+                fn.call(this.arguments)
+                isUse = true
+            },await)
+
+        }
+
+    }
+
+    function fn(num){
+        this.count++
+    }
+    fn.count = 0
+    var i
+    for(i = 0 ; i < 10 ; i++){
+        if(i>5){
+            fn(i)
+        }
+    }
+    console.log(fn.count)
+    // 交换两个变量值
+    var a = 1
+    var b = 2
+    b = a+b-(a=b)
+
+    console.log(a,b)
+
+    let obj = [
+        {name:'apple',issold:false},
+        {name:'orange',issold:false},
+        {name:'banana',issold:true},
+        {name:'pear',issold:true},
+    ]
+    // 已售、未售
+    // 名称升序
+    obj.sort((a,b)=>a.name.charCodeAt(0) - b.name.charCodeAt(0)).sort((a,b)=> b.issold - a.issold)
+
+    console.log(obj)
+
+    var number1 = [2,21,4,32,43,1,9]
+    // Array.prototype.sort.call(number1,(a,b)=>b-a)
+    // console.log(number1[0])
+    // console.log(Math)
+    // Math.max.apply(this,number1)
+    // Math.max.call(this,...number1)
+    console.log(this,Math.max.call(this,...number1))
+    // console.log(Math.max.apply(this,number1))
+    var number2 = [2,4,6,2,3,4,5,4]
+    // console.log('扩展运算符：',...number2)
+    var n1 = [...new Set(number2)]
+    n1.sort((a,b)=>{return a-b})
+    console.log(n1)
+
+    // 判断某个字母，在某字符串中出现的次数
+    let str = 'AHGJHVHLSDJGSGGFDSGFHGDFSY'
+
+    console.log(getCount(str))
+    console.log('之前：',str.length);
+    var bstr = str.replace(/G/g,'')
+    console.log('之后：',bstr.length);
+    
+    function getCount(str){
+        let arr = new Set(str.split(""))
+        let max = 0
+        let me = null
+        arr.forEach(item=>{
+            if(str.match(new RegExp( item ,'g')).length > max){
+                max = str.match(new RegExp( item ,'g')).length
+                me = item
+            }
+        })
+        return me + "在此字符串中出现次数最多：" + max + '次'
+    }
+
+    console.log(true - true)  //0
+    console.log(true - false)  //1
+    console.log(false - false)  //0
+    console.log(false - true)  //-1
+
+    console.log(Array.prototype)
+    var z = 'ojbk'
+    console.log(new RegExp("^" + z +"$",'i'))
+    // 字符串数组去重
+    let strx = 'JKGKLHDHSDGUIUSJGHKSKHHGS'
+    console.log([...new Set(strx)].join(''))
+
+    var arr1 = [1,2,3,4,4,4]
+    var set = new Set(arr1)
+
+    console.log(set)
+
+    console.log(Array.from(set))
+
+
+    let set1 = new Set()
+    var m = 1
+    var n = m
+    set1.add(m)
+    console.log( Array.from(set1) )
+    set1.add(n)
+    console.log( [...set1] instanceof Array)
+
+
+    let k = Symbol('foo')
+    console.log(k.description)
+
+
+    if('z' in {"z":6}){
+        console.log('kkkkk')
+    }
+</script>
+<script>
+    console.log('------------------华丽分割线--------------------')
+    const queuedObservers = new Set();
+
+    const observe = fn => queuedObservers.add(fn);
+    const observable = obj => new Proxy(obj, {set});
+    console.log('1',observe);
+    
+    function set(target, key, value, receiver) {
+        console.log('参数',target, key, value, receiver);
+        if(key === 'age'&& typeof(value) !== 'number'){
+            console.log('格式错误');
+            return 118
+        }
+        const result = Reflect.set(target, key, value, receiver);
+        console.log('2',observe);
+        queuedObservers.forEach(observer => observer())
+        console.log('返回',result);
+        return result;
+    }
+    const Person = observable({
+        name: '张三',
+        age : 18,
+        run : function(){
+            console.log('我叫',this.name,'我会跑')
+        }
+
+    })
+    console.log('本体',Person)
+    // console.log(Person.age)
+    function print(){
+        console.log(`${Person.name},${Person.age}`);
+    }
+    observe(print)
+    Person.age = '123'
+    console.log(Person);
+    
+
+</script>
+</html>

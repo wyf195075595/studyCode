@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>表格</title>
+   <!-- 引入 -->
+   <link rel="stylesheet" type="text/css" href="./gridmanager/css/gm.css"/>
+   <script type="text/javascript" src="./gridmanager/js/gm.js"></script>
+   <!-- Firefox, Chrome,IE10+ -这里提一下为什么不支持低版本: 使用表格插件的大都是管理平台或系统,通常都是会进行浏览器指定,所以设计之初就没有考虑这个方面. -->
+</head>
+
+<body>
+   <table grid-manager="demo-baseCode"></table>
+   <button id='destroys'>destroy</button> 
+</body>
+<script>
+    
+// 博文类型
+      const TYPE_MAP = {
+         '1': 'HTML/CSS',
+         '2': 'nodeJS',
+         '3': 'javaScript',
+         '4': '前端鸡汤',
+         '5': 'PM Coffee',
+         '6': '前端框架',
+         '7': '前端相关'
+      };
+var table = document.querySelector('table[grid-manager="demo-baseCode"]');
+var destroyDOMs = document.getElementById('destroys');
+
+destroyDOMs.onclick = function(){
+            document.querySelector('table[grid-manager="demo-baseCode"]').GM('destroy');
+         };
+table.GM({
+   /*// ajax_url 将在v2.6.0以上版本废弃，请不要再使用
+            // ,ajax_url: 'http://www.lovejavascript.com/blogManager/getBlogList'
+            */
+         ajax_data: function () {
+               return 'http://www.lovejavascript.com/learnLinkManager/getLearnLinkList';
+            }
+   // ajax_url: 'http://www.lovejavascript.com/learnLinkManager/getLearnLinkList'
+    /*类型*/
+    ,ajax_type: 'POST'
+    /*queryObject{}
+   配置接口请求参数，可用于搜索条件传递;
+   配置方式:
+   document.querySelector('table').GM('init', {
+       ajax_url:'http://www.lovejavascript.com/learnLinkManager/getLearnLinkList',
+       query: {'name': '拭目以待', 'sex': '男'} // 传递请求参数
+   });
+
+   注意事项:
+   1. 当query的key与分页及排序等字段冲突时将会被忽略。
+   2. 如果是对已实例化表格增加请求参数，请使用.setQuery()方法。*/
+    ,query: {pluginId: 1}
+    /*禁用宽度调整*/
+    ,supportAdjust: false
+    /*禁用拖拽调整*/
+    ,supportDrag: false
+    /*禁用全选*/
+    ,supportCheckbox: false
+    /*禁用序号*/
+    ,supportAutoOrder: false
+    /*国际化  就是全部显示为英文 true*/
+    ,supportAjaxPage: false
+    /*请求前测试数据*/
+   /* ,dataKey: 'list'  // 注意: 这里是用来测试responseHandler 是否生效; 数据本身返回为data, 而在这里我把数据名模拟为list, 再通过responseHandler去更改
+    
+    // 通过该方法修改全部的请求参数
+   ,requestHandler: function(request){
+      request.newParams = '这个参数是通过 requestHandler 函数新增的';
+      // 更改这个参数后, 将会强制createDate字段使用 降序排序.
+      // 'sort_' 通过 配置项 sortKey 进行配置
+      // 'DESC' 通过 配置项 sortDownText 进行配置
+      //       request.sort_createDate = 'DESC';
+      return request;
+   }
+   // 可以通过该方法修改返回的数据
+   ,responseHandler: function(response){
+      // 数据本身返回为data, 通过responseHandler更改为与dataKey匹配的值
+      response.list = response.data;
+      return response;
+   }
+   /*   
+    supportAjaxPageBooleanfalse
+   指定列表是否支持分页。
+   注意事项:
+   分页实现需要后端程序通过 GridManager 传递的参数[ cPage(当前页) 和 pSize(每页显示条数) ] 返回对应的数据。
+   supportAutoOrderBooleantrue
+   是否支持自动序号
+   supportCheckboxBooleantrue
+   配置是否支持选择与反选。
+     */
+    //,supportAjaxPage: true,
+    // 选择事件执行前事件
+            /*checkedBefore: function(checkedList){
+               console.log('checkedBefore==', checkedList);
+            }
+            // 选择事件执行后事件
+            ,checkedAfter: function(checkedList){
+               console.log('checkedAfter==', checkedList);
+            }
+            // 全选事件执行前事件
+            ,checkedAllBefore: function(checkedList){
+               console.log('checkedAllBefore==', checkedList);
+            }
+            // 全选事件执行后事件
+            ,checkedAllAfter: function(checkedList){
+               console.log('checkedAllAfter==', checkedList);
+            }
+            // AJAX请求前事件函数
+            ,ajax_beforeSend: function(promise){
+               console.log('ajax_beforeSend');
+            }
+            // AJAX成功事件函数
+            ,ajax_success: function(response){
+               console.log('ajax_success');
+            }
+            // AJAX失败事件函数
+            ,ajax_error: function(error){
+               console.log('ajax_error');
+            }
+            // AJAX结束事件函数
+            ,ajax_complete: function(complete){
+               console.log('ajax_complete');
+            }*/
+                     // ,emptyTemplate: '<div class="void-template">通过 emptyTemplate 配置的空数据提示</div>'
+            // 配置 request header, 非xhr自带的头信息将会触发非简单请求, 需要在后端进行对应的配置
+            // 参考链接: http://www.lovejavascript.com/#!zone/blog/content.html?id=53
+//          ,ajax_headers: {
+//             'header-test': 'this is test request header'
+//             'Content-Type': 'application/json'
+//          }
+            // 配置xhr, 如: withCredentials -> 跨域情况使用cookie等证书. 需要在后端进行对应的配置
+            // 参考链接: http://www.lovejavascript.com/#!zone/blog/content.html?id=59
+            //    ,ajax_xhrFields: {
+            //       withCredentials: true
+            //    }
+
+    /*columnDataArray[]
+表格列配置参数，数组类型。
+一个数组元素对应一个表格列， 通过该参数，对表格列进行配置。
+
+columnData: [{
+    // 列的唯一索引。字符串类型，必设项    
+    key: 'url',
+
+    // 列的显示文本。字符串类型，必设项
+    text: 'url', 
+ 
+    // 是否显示, 默认值 true
+    isShow: true,
+
+    // 列所占宽度, 字符串类型，非必设项
+    // 需要注意的是: 
+    // 1.如果当前列的th内文本实际占用宽度大于该参数指定的宽度时，会导致出现滚动条。
+    // 2.建议不要将所有的列都进行宽度设置，而是留一个列进行自动适应(注意该列的isShow:true)
+    width: '100px',
+
+    // 列文本对齐信息，字符串类型，非必设项
+    // 三种值: 'left', 'center', 'right'
+    align: '',
+
+    // 列的排序信息。字符串类型，非必设项
+    // 1、'': 该列支持排序，但初始化时不指定排序类型
+    // 2、'DESC': 该列支持排序，并指定为降序。可通过参数[sortDownText]来指定降序所使用的字符串
+    // 3、'ASC': 该列支持排序，并指定为升序。可通过参数[sortUpText]来指定升???所使用的字符串
+    sorting: 'DESC',
+
+    // 列的表???提醒内容。字符串类型，非必设项
+    // 仅在参数supportRemind=true时生效
+    remind: '文本介绍',
+    
+    // 表头筛选条件, 该值由用户操作后会将选中的值以{key: value}的形式覆盖至query参数内。非必设项
+    filter: {
+        // 筛选条件列表, 数组对象。格式: [{value: '1', text: 'HTML/CSS'}],在使用filter时该参数为必设项。
+        option: [],
+        // 筛选选中项，字符串, 默认为''。 非必设项，选中的过滤条件将会覆盖query
+        selected: '3',
+        // 否为多选, 布尔值, 默认为false。非必设项
+        isMultiple: false
+    },
+    // 自定义列模板，非必设项.
+    // 字段类型: 
+    // 1.函数类型,需返回DOM string 或 DOM node.
+    // 2.字符串类型,DOM string.
+    // 触发刷新后，GridManager会使用template中返回的字符串，进行重新渲染。
+    // 如果没有配置template，将会使用当前配置项属性key所对应的响应数据。
+    
+    // 函数参数:
+    // nodeData: 当前单元格的渲染数据
+    // rowData: 当前单元格所在行的渲染数据, 本例中: 参数nodeData=== rowData.url
+    
+    // 事件绑定:
+    // 1、通过javascript原生事件绑定,如onclick
+    // 2、通过element.addEventListener方法绑定
+    // 3、通过gm-click绑定，该方式绑定用于在框架中指定当前scope
+    
+    // 注意事项:
+    // 1、gridmanager-vue 中 template 使用方式略有不同，请参考 gridmanager-vue
+    template: function(nodeData, rowData){
+        return '<a href="'+nodeData+'">'+rowData.url+'</a>';
+    }
+}]*/
+    ,columnData: [
+        {
+            key: 'name',
+            text: '名称',
+            /*表头提醒*/
+            remind: 'the name',
+            /*使用排序*/
+            sorting: '',
+            /*自定义列模版 rowObject 是所有的值*/
+              template: function(url, rowObject){
+                return '<a style="color:#337ab7;" href="'+url+'" target="_blank">点击跳转</a>';
+            }
+        },{
+            key: 'info',
+            text: '使用说明',
+            sorting: 'ASC'
+        },{
+            key: 'url',
+            text: 'url',
+            sorting: ''
+        }
+        ,{
+                  key: 'type',
+                  remind: 'the type',
+                  text: '博文分类',
+                  width: '100px',
+                  align: 'center',
+                        sorting: '',
+                        // 表头筛选条件, 该值由用户操作后会将选中的值以{key: value}的形式覆盖至query参数内。非必设项
+                        filter: {
+                            // 筛选条件列表, 数组对象。格式: [{value: '1', text: 'HTML/CSS'}],在使用filter时该参数为必设项。
+                            option: [
+                                {value: '1', text: 'HTML/CSS'},
+                                {value: '2', text: 'nodeJS'},
+                                {value: '3', text: 'javaScript'},
+                                {value: '4', text: '前端鸡汤'},
+                                {value: '5', text: 'PM Coffee'},
+                                {value: '6', text: '前端框架'},
+                                {value: '7', text: '前端相关'}
+                            ],
+                            // 筛选选中项，字符串, 默认为''。 非必设项，选中的过滤条件将会覆盖query
+                            selected: '3',
+                            // 否为多选, 布尔值, 默认为false。非必设项
+                            isMultiple: false
+                        },
+                  template: function(type, rowObject){
+                     console.log(type);
+                     return TYPE_MAP[type];
+                  }
+               }
+    ]
+    // 排序后事件
+            ,sortingAfter: function (data) {
+               console.log('sortAfter', data);
+            }
+            // 渲染完成后的回调函数
+         }, function(query){
+            
+            console.log('渲染完成后的回调函数:', query);
+      
+})
+
+
+</script>
+</html>

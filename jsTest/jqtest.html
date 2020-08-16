@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 60px;
+            width: 100%;
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <ul id="uBox">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div class='box1'>
+        <marquee behavior="scroll"  direction="left" align="top">
+           <p style="color:red;font-size: 20px;display: flex;align-items: center;">警告!<span style="color: white;font-size: 14px;">这吉哈德发的设计开发哈吉ask东方红卡进度</span></p>
+           
+        </marquee>
+    </div>
+    <iframe src="./test1.html" frameborder="0" id="myIframe"></iframe>
+
+    <!--marquee 
+        参数
+    direction 表示滚动的方向，值可以是left，right，up，down，默认为left
+    behavior 表示滚动的方式，值可以是scroll(连续滚动)slide(滑动一次)alternate(来回滚动)
+    loop 表示循环的次数，值是正整数，默认为无限循环
+    scrollamount 表示运动速度，值是正整数，默认为6
+    scrolldelay 表示停顿时间，值是正整数，默认为0，单位是毫秒
+    align 表示元素的垂直对齐方式，值可以是top，middle，bottom，默认为middle
+    bgcolor 表示运动区域的背景色，值是16进制的RGB颜色，默认为白色
+    height、width 表示运动区域的高度和宽度，值是正整数(单位是像素)或百分数，默认width=100% height为标签内元素的高度。
+    hspace、vspace 表示元素到区域边界的水平距离和垂直距离，值是正整数，单位是像素。
+    onmouseover=this.stop() onmouseout=this.start() 表示当鼠标以上区域的时候滚动停止，当鼠标移开的时候又继续滚动。
+    
+    注释
+    MARQUEE 元素的默认宽度与其父元素的宽度相等。如果 MARQUEE 位于没有指定宽度的 TD 内，你就需要明确设置 MARQUEE 的宽度。如果 MARQUEE 和 TD 的宽度都没有指定，那么滚动字幕就将限定于 1 个像素宽。
+    要创建垂直滚动的字幕，请将其 scrollLeft 属性设定为 0。要创建水平滚动的字幕，请将其 scrollTop 属性设定为 0，这将覆盖任何脚本设置。
+    scrollLeft 和 scrollTop 属性当字幕滚动时为只读。当不处于滚动状态时，scrollLeft 对于设置为水平滚动的字幕来说为可读写，scrollTop 对于设置为垂直滚动的字幕来说为可读写。
+    此元素在 Microsoft® Internet Explorer 3.0 的 HTML 中可用，在 Internet Explorer 4.0 的脚本中可用。
+    此元素是块元素。
+    此元素需要关闭标签。
+    
+    示例
+    下面的例子使用了 MARQUEE 元素创建了由左向右的滚动字幕，移动速度为每 200 毫秒 10 像素。
+    <MARQUEE DIRECTION=RIGHT BEHAVIOR=SCROLL SCROLLAMOUNT=10 SCROLLDELAY=200>这是一个滚动字幕。</MARQUEE>
+    下面的例子显示了 marquee 元素的 scrollLeft 和 scrollTop 属性的一些用途。
+    <MARQUEE id=m1 direction=right style="border-width:2px;border-style:solid;" width=200 height=200>向右</MARQUEE>
+    单击此按钮可在字幕滚动时读取 scrollLeft 和 scrollTop 属性的值。
+    <BUTTON onclick="alert('scrollLeft: ' + m1.scrollLeft + ' scrollRight: ' + m1.scrollTop)">读取</BUTTON>
+    当字幕停止时，你可以设置水平字幕的 scrollLeft，或者设置垂直字幕的 scrollTop。
+    <BUTTON onclick="m1.stop();m1.scrollLeft = 190;">停止并设置 scrollLeft=190</BUTTON>
+    <BUTTON onclick="m1.start();">开始</BUTTON> -->
+
+    <script src="./jquery.js"></script>
+    <script>
+        $('<p>1212</p>',$('#myIframe').prop('contentWindow').document)
+    </script>
+    <script>
+        var lis = $('li')
+        var arr1 = [1,2,3,4]
+        // var rs = $.merge(lis,arr1)
+        var rs = arr1.concat(lis)
+        // console.log($.makeArray(lis));
+        // console.log($.makeArray(lis,{length:0}));
+        
+        // console.log('array :',$.isArray([...lis]),[...lis])
+        console.log(lis,arr1,rs);
+        var str = `<li>1</li>
+        <li>2</li>
+        <li class= "ojbk" data-id='ok'>3</li>
+        <li>4</li>`
+        var ss = $.parseHTML(str)
+        
+        $('ul').append(ss)
+        $('.ojbk').css({
+            color:'red',
+            'font-size':24
+        })
+        console.log(ss);
+        $('li').eq(-2).css('color','blue')
+        $.data($('li').get(-2),'user1',{name:'www1',age:18})
+        $.data($('li').get(-2),'user2',{name:'www2',age:18})
+        $('li').eq(-2).removeData('id')
+        console.log('储存：',$('li').eq(-2).data('user1'))
+        console.log('储存：',$('li').eq(-2).data('user2'))
+        console.log('储存：',$('li').eq(-2).data('id'))
+        console.log('\uD834\uDF06');
+        // alert`okkkkk`;
+        var a = 5,b = 5
+        tag`<div>Hello imok${a+b}=10${a}${b}?</div>`
+        function tag(str,...values){
+            console.log(str,values);
+            return console.log('ojbk',str.raw);
+            
+        }
+
+        console.log('王'.codePointAt(0).toString(16));
+        console.log('王'.charCodeAt(0));
+        console.log('\u738b');
+        console.log('\u29579');
+        var reg = /a+/ug
+        var result = 'aaa_aa_ba'.match(reg)
+        console.log(result);
+        console.log(Number('0o111'));
+        
+    </script>
+</body>
+</html> 
