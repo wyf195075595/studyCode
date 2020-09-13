@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .wrap{
+            position:absolute;
+            width: 400px;
+            border:1px solid black;
+        }
+        #mask{
+            height: 300px;
+            background:url('./images/bg01.jpg') lightblue;
+            -webkit-mask:  url('./images/bg01.jpg') no-repeat;
+            animation: 2s maskPosition infinite alternate ;
+        }
+        #mask:hover{
+            animation: none;
+        }
+        @keyframes maskPosition{
+            0%{-webkit-mask-position:0 0;}
+            100%{-webkit-mask-position:100% 100%;}
+        }
+
+        img {
+            mask-image: url('./images/boy.gif');
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div id="mask"></div>
+</div>
+<div class="box">
+    <img src="./images/boy.gif" alt="">
+</div>
+
+<script>
+    var oBox = document.getElementById('mask');
+    oBox.onmousemove = function(e){
+        e = e || event;
+        oBox.style.WebkitMaskPosition=(e.clientX-50)+"px "+ (e.clientY-50)+"px";
+    }
+</script>
+</body>
+</html>

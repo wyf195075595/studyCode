@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .comments{
+            width: 30%;
+            overflow: auto;
+            /* ie不换行 */
+            word-break: break-all;
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- //onpropertychange事件ie专用 -->
+    <textarea class="comments" id="comments" rows=1   name=s1   cols=27   oninput= "halder(this)"></textarea>
+ 
+<!-- <textarea class="comments" style="height:expression((this.scrollHeight>150)?'150px':(this.scrollHeight+5)+'px');overflow:auto;"></textarea>  -->
+
+<script>
+    // document.getElementById('comments').addEventListener('oninput',function(){
+    //     console.log('ojbk');
+    // })
+    function halder(e){
+        console.log(e);
+        e.style.posHeight=e.scrollHeight 
+    }
+</script>
+</body>
+</html>

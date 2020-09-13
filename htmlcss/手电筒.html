@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radial-gradient(circle at xpx ypx,transparent,#000)</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100vh;
+            background: url('/images/bg01.jpg') center / cover no-repeat;
+        }
+        .content{
+            background: white;
+            width: 100%;
+            height: 100%;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+
+    </div>
+    <script>
+        var c = document.querySelector('.content')
+        document.documentElement.addEventListener('mousemove',(e)=>{
+            console.log(1);
+            var x = e.pageX;
+            var y = e.pageY;
+            c.style.background = `radial-gradient(circle at ${x}px ${y}px,transparent,#000 20%)`
+        })
+    </script>
+</body>
+</html>

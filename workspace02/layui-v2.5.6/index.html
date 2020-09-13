@@ -296,7 +296,7 @@ $(function(){
           },
           {
             station_name: "八龙",//--厂站
-            name: "500千伏九石二线2号线路保护装置RCS931EG"//--设备名称
+            name: "500千伏九石二线2号线路保护装置"//--设备名称
           },
           {
             station_name: "八龙",//--厂站
@@ -564,16 +564,21 @@ $(function(){
         })
         return data
     }
-        
+    var isNull = false ;//是否出现空站
     data.bodyleft.map((item,index1)=>{ //厂站
       item.sbmc.map((items,index2)=>{//设备名称
-        var sbLen = targetArr(items).length
-            targetArr(items).map((data,i)=>{
+          var sbLen = targetArr(items).length
+          if(sbLen  == 0){
+            console.log('跳过了：：',item,items,item.sbmc.indexOf(items),targetArr(items));
+            isNull = item.sbmc.indexOf(items)==0?true:false
+         
+          }
+          targetArr(items).map((data,i)=>{
               
                 if(i == 0){
-                    if(targetArr(items).length >1){
+                    if(sbLen >1){
                       trs += `<tr>
-                              ${index2==0?`<td rowspan='${czRowspan(item.sbmc)}'>${item.cz}</td>`:''}
+                              ${(index2==0 || isNull)?`<td rowspan='${czRowspan(item.sbmc)}'>${item.cz}</td>`:''}
                               ${i==0?`<td rowspan='${sbmcRowspan(items)}'>${items}</td>`:''}
                               <td>故障位置</td>
                               <td>25.03356KM</td>
@@ -588,8 +593,9 @@ $(function(){
                               <td></td>
                               <td><span onclick="todownload('${data.trip_name}','${data.trip_value}')">下载</span></td>
                           </tr>`
+                          isNull = false
                     }else{
-                      trs += `<tr>
+                        trs += `<tr>
                               ${index2==0?`<td rowspan='${czRowspan(item.sbmc)}'>${item.cz}</td>`:''}
                               ${i==0?`<td rowspan='${sbmcRowspan(items)}'>${items}</td>`:''}
                               <td>故障位置</td>
@@ -614,39 +620,38 @@ $(function(){
                           </tr>`
                     }
                     
-                  }else {
-                      console.log('i',i);
+                }else {
                       if(i == targetArr(items).length - 1){
                         trs += `<tr>
-                          <td>${data.trip_name}</td>
-                          <td>${data.trip_value}</td>
-                          <td>动作描述</td>
-                          <td></td>
-                          <td></td>
-                      </tr>
-                      <tr style="color:red;">
-                          <td>动作时间</td>
-                          <td>2020-05-14 15:26:31.571</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                      </tr>
-                      `
+                              <td>${data.trip_name}</td>
+                              <td>${data.trip_value}</td>
+                              <td>动作描述</td>
+                              <td></td>
+                              <td></td>
+                          </tr>
+                          <tr style="color:red;">
+                              <td>动作时间</td>
+                              <td>2020-05-14 15:26:31.571</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                          </tr>
+                        `
                       }else{
                         trs += `<tr>
-                          <td>${data.trip_name}</td>
-                          <td>${data.trip_value}</td>
-                          <td>动作描述</td>
-                          <td></td>
-                          <td></td>
-                      </tr>`
+                            <td>${data.trip_name}</td>
+                            <td>${data.trip_value}</td>
+                            <td>动作描述</td>
+                            <td></td>
+                            <td></td>
+                        </tr>`
                       }
                       
                     
-                  }
+                }
             })
-                  
-            })
+                
+          })
       })
 
     layui.use(['table','layer'], function(){
@@ -737,6 +742,11 @@ $(function(){
       });
   }
 
+})
+
+
+;[].map((item,index)=>{
+  console.log('空值循环：',item,index);
 })
 
 </script>

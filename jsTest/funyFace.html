@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滑稽笑容</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        body{
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            align-items: center;
+            background: chocolate;
+        }
+        .face{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #ffcd00;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+
+        }
+        .face::before{
+            content: '';
+            position: absolute;
+            top: 180px;
+            width: 150px;
+            height: 70px;
+            background: #b57700;
+            border-bottom-right-radius: 70px;
+            border-bottom-left-radius: 70px;
+            transition: all 0.3s;
+        }
+        .face:hover::before{
+            top: 210px;
+            height: 20px;
+            width: 150px;
+            background:#b57700;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+        .eyes{
+            position: relative;
+            top: -40px;
+            display: flex;
+        }
+        .eyes .eye{
+            position: relative;
+            width:80px;
+            height: 80px;
+            display: block;
+            background: white;
+            margin: 0 15px;
+            border-radius: 50%;
+        }
+        .eyes .eye::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 30px;
+            transform: translate(-50%,-50%);
+            width: 40px;
+            height: 40px;
+            background: black;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="face">
+        <div class="eyes">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+    </div>
+    <script>
+        document.body.addEventListener('mousemove',eyeball)
+
+        function eyeball(event){
+            var eyes = document.querySelectorAll('.eye')
+            eyes.forEach(item=>{
+                let x = item.getBoundingClientRect().left + (item.clientWidth/2)
+                let y = item.getBoundingClientRect().top + (item.clientHeight/2)
+                // Math.atan2() 返回点(x,y)和(0,0)之间直线的倾斜角
+                let radian = Math.atan2(event.pageX - x ,event.pageY - y)
+                // 换算角度
+                let rot = (radian * (180/Math.PI) * -1) + 270
+                item.style.transform = `rotate(${rot}deg)`
+            })
+        }
+    </script>
+</body>
+</html>
