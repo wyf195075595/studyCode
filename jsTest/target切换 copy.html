@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.swiper-box{
+    position: relative;
+    width: 500px;
+    height: 300px;
+    margin: 20px auto;
+    background: #f1f1f1;
+}
+.swiper-cont div{
+    width: 0%;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: width .5s linear;
+    -moz-transition: width .5s linear;
+    -ms-transition: width .5s linear;
+    -o-transition: width .5s linear;
+    transition: width .5s linear;
+}
+.swiper1{
+  background: -webkit-linear-gradient(bottom, #fba555, #ffed6c 75%);
+  background: -moz-linear-gradient(bottom, #fba555, #ffed6c 75%);
+  background: -ms-linear-gradient(bottom, #fba555, #ffed6c 75%);
+  background: -o-linear-gradient(bottom, #fba555, #ffed6c 75%);
+  background: linear-gradient(to top, #fba555, #ffed6c 75%);
+}
+.swiper2{
+  background: -webkit-linear-gradient(right, #55d5fb, #fd74a7 75%);
+  background: -moz-linear-gradient(right, #55d5fb, #fd74a7 75%);
+  background: -ms-linear-gradient(right, #55d5fb, #fd74a7 75%);
+  background: -o-linear-gradient(right, #55d5fb, #fd74a7 75%);
+  background: linear-gradient(to left, #55d5fb, #fd74a7 75%);
+}
+.swiper3{
+  background: -webkit-linear-gradient(bottom right, #55fb69, #6cfff1  75%);
+  background: -moz-linear-gradient(bottom right, #55fb69, #6cfff1  75%);
+  background: -ms-linear-gradient(bottom right, #55fb69, #6cfff1  75%);
+  background: -o-linear-gradient(bottom right, #55fb69, #6cfff1  75%);
+  background: linear-gradient(to top left, #55fb69, #6cfff1  75%);
+}
+.swiper-num{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: inline-block;
+    z-index: 9;
+}
+.swiper-num a{
+    display: inline-block;
+    margin-left: 10px;
+    padding: 10px 20px;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    background: rgba(255,255,255,.45);
+}
+.swiper-num a:hover,.swiper-num a:active{
+    color: red;
+    cursor: pointer;
+    background: rgba(255,255,255,.95);
+}
+.swiper-box :target{
+    width: 100%;
+    z-index: 9;
+    -webkit-transition: width .5s linear;
+    -moz-transition: width .5s linear;
+    -ms-transition: width .5s linear;
+    -o-transition: width .5s linear;
+    transition: width .5s linear;
+}
+/* .in-cont{
+    height: 60px;
+} */
+</style>
+<body>
+    <div class="swiper-box">
+        <div class="swiper-cont">
+            <div class="swiper1" id="swiper1">
+            </div>
+            <div class="swiper2" id="swiper2">
+            </div>
+            <div class="swiper3" id="swiper3">
+            </div>
+        </div>
+        <div class="swiper-num">
+            <a href="#swiper1">1</a>
+            <a href="#swiper2">2</a>
+            <a href="#swiper3">3</a>
+        </div>
+    </div>
+</body>
+</html>

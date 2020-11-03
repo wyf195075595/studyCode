@@ -7,7 +7,7 @@ export const showLoadingPlugin = function(vm:any){
           default:'loading...'
         }
       }
-    },'loadingComponent')
+    })
   
     function loading(msg:string){
       const div = document.createElement('div');

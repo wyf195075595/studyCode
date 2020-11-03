@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <div class="container">
+        <section>
+            <form >
+                <label for="name">
+                    用户名：
+                    <input type="text" id="name" name='name' required>
+                </label>
+                <label for="name">
+                    密码:
+                    <input type="text" id="pwd" name='pwd' required>
+                </label>
+                <button type="submit">提交</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="./js/jquery-1.7.1.min.js"></script>
+    <script>
+        const form = document.forms[0];
+        form.addEventListener('submit',function(e){
+            e.preventDefault();
+            const formData = new FormData(this);
+            console.log(formData);
+            const entries = formData.entries();
+            const data = Object.fromEntries(entries)
+            console.log(data);
+            for (const ele of formData) {
+                console.log(ele);
+            }
+
+        })
+    </script>
+</body>
+</html>

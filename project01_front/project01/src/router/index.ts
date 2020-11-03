@@ -14,13 +14,30 @@ Vue.use(VueRouter)
         path: '/index',
         name: 'index',
         component: () => import('../views/Index.vue'),
+      },
+      {
+        path: '/lwzx',
+        name: 'lwzx',
+        component: () => import( '../views/Lwzx.vue')
+      },
+      {
+        path: '/jjjr',
+        name: 'jjjr',
+        component: () => import( '../views/Jjjr.vue')
+      },
+      {
+        path: '/game',
+        name: 'game',
+        component: () => import( '../views/Game.vue')
       }
+
     ]
   },
+
   {
-    path: '/index',
-    name: 'index',
-    component: () => import( '../views/Index.vue')
+    path: '/404',
+    name: 'notfound',
+    component: () => import( '../views/NotFound.vue')
   }
 ]
 

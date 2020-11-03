@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .read_html{
+        position: absolute;
+        width: 50%;
+        height: 60%;
+        background: skyblue;
+        bottom: 0;
+        right: 0;
+    }
+</style>
+<body>
+    <div class="panel-body">
+        <a class="media" href="/resource/test.pdf">qqq</a>  
+        <a class="media" href="https://www.jq22.com/demo/jquerypdf201808150005/pdf1.pdf">qqq</a>  
+        <!-- /home/jysp/workspace/2/test.pdf -->
+    </div>
+    <button id="test" >change</button>
+    <div class="read_html">
+
+    </div>
+    <script src="/js/jquery-1.7.1.min.js"></script>
+    <script src="/js/jquery.media.js"></script>
+
+    <script>
+        // $(function() {  
+        //     $('a.media').media({width:800, height:600});  
+        // });
+        $('#test').on('click',function(){
+            $('#pdf_iframe').attr('src',"/resource/test.pdf")
+        })
+        $(`<iframe id="pdf_iframe" src="https://www.jq22.com/demo/jquerypdf201808150005/pdf1.pdf" width="100%" height="100%" frameborder="1" >`).appendTo($('.read_html'))
+    </script>
+</body>
+</html>

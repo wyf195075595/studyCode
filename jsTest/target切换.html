@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.swiper-box{
+    position: relative;
+    width: 500px;
+    height: 300px;
+    margin: 20px auto;
+    background: #f1f1f1;
+}
+.swiper-cont div{
+    width: 0%;
+    opacity: 0;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition:all .5s linear;
+}
+.swiper-cont div img{
+    width: 100%;
+    height: 100%;
+}
+.swiper-num{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: inline-block;
+    z-index: 9;
+}
+.swiper-num a{
+    display: inline-block;
+    margin-left: 10px;
+    padding: 10px 20px;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    background: rgba(255,255,255,.45);
+}
+.swiper-num a:hover,.swiper-num a:active{
+    color: red;
+    cursor: pointer;
+    background: rgba(255,255,255,.95);
+}
+.swiper-box :target{
+    width: 100%;
+    opacity:1;
+    transition:all .5s linear;
+}
+/* .in-cont{
+    height: 60px;
+} */
+</style>
+<body>
+    <div class="swiper-box">
+        <div class="swiper-cont">
+            <div class="swiper1" id="swiper1">
+                <img src="/images/b1.jpg" alt="">
+            </div>
+            <div class="swiper2" id="swiper2">
+                <img src="/images/b2.png" alt="">
+            </div>
+            <div class="swiper3" id="swiper3">
+                <img src="/images/b3.png" alt="">
+            </div>
+        </div>
+        <div class="swiper-num">
+            <a href="#swiper1">1</a>
+            <a href="#swiper2">2</a>
+            <a href="#swiper3">3</a>
+        </div>
+    </div>
+</body>
+</html>

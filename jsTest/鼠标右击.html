@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #abc{
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="abc">
+
+    </div>
+
+    <script src="/js/jquery-1.7.1.min.js"></script>
+    <script>
+       
+        // document.oncontextmenu = function(){return false};
+        // document.getElementById('abc').onclick = function (e) {
+        //     console.log(e);
+        // }
+        // document.onmousedown =function(ev){
+        //     var oEvent = ev||event;
+        //     alert(oEvent.button);
+
+        // }
+        $('#abc').on('mousedown',function(ev){
+            var oEvent = ev||event;
+            console.log(oEvent.button);
+
+        })
+    </script>
+</body>
+</html>

@@ -7,7 +7,11 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import {showLoadingPlugin} from '@/components/plugins/index'
+import MyPlugin from '@/components/plugins/test'
 Vue.use(showLoadingPlugin)
+Vue.use(MyPlugin)
+console.log(MyPlugin);  
+
 
 Vue.use(ElementUI);
 Vue.config.productionTip = false

@@ -1,0 +1,446 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.contanier {
+  position: fixed;
+  width: 100%;
+  min-width: 1920px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contanier section {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contanier section .rect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.12rem;
+}
+.contanier section .not_border_left {
+  border-left: 0!important;
+}
+.contanier section .not_border_right {
+  border-right: 0!important;
+}
+.contanier section .not_border_top {
+  border-top: 0!important;
+}
+.contanier section .not_border_bottom {
+  border-bottom: 0!important;
+}
+.contanier section .top_section,
+.contanier section .bottom_section {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.contanier section .top_section > div:nth-child(1),
+.contanier section .bottom_section > div:nth-child(1) {
+  width: 22%;
+}
+.contanier section .top_section > div:nth-child(2),
+.contanier section .bottom_section > div:nth-child(2) {
+  width: 33%;
+}
+.contanier section .top_section > div:nth-child(3),
+.contanier section .bottom_section > div:nth-child(3) {
+  width: 44%;
+}
+.contanier section .top_left {
+  display: flex;
+  justify-content: flex-end;
+}
+.contanier section .top_left .contentBox {
+  width: 60%;
+  height: 100%;
+  position: relative;
+  top: 15%;
+}
+.contanier section .top_left .contentBox .top_box {
+  height: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.contanier section .top_left .contentBox .top_box .box1 {
+  width: 30%;
+  height: 40%;
+  border: 1px solid #333;
+  font-size: 0.12rem;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.contanier section .top_left .contentBox .top_box .box1 .rect {
+  height: 20%;
+  border: 1px solid #333;
+  border-bottom: 0;
+}
+.contanier section .top_left .contentBox .top_box .box1 .rect:last-child {
+  border-bottom: 1px solid #333;
+}
+.contanier section .top_left .contentBox .top_box .box2 {
+  width: 15%;
+  height: 10%;
+  margin-bottom: 10%;
+  border: 1px solid #333;
+  font-size: 0.12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contanier section .top_left .contentBox .top_box .box3 {
+  width: 30%;
+  height: 70%;
+  border: 1px solid #333;
+  padding: 1%;
+  font-size: 0.12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.contanier section .top_left .contentBox .top_box .box3 .rect {
+  height: 12%;
+  border: 1px solid #333;
+  border-bottom: 0;
+}
+.contanier section .top_left .contentBox .top_box .box3 .rect:last-child {
+  border-bottom: 1px solid #333;
+}
+.contanier section .top_left .contentBox .bottom_box {
+  height: 15%;
+  background: #999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.contanier section .top_left .contentBox .bottom_box .arrow {
+  font-size: 0.12rem;
+}
+.contanier section .top_left .contentBox .bottom_box .rect {
+  height: 35%;
+  width: 80%;
+  border: 1px solid #333;
+}
+.contanier section .top_middle {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.contanier section .top_middle .contentBox {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.contanier section .top_middle .contentBox h3 {
+  font-size: 0.24rem;
+  color: #ea7918;
+  position: relative;
+  top: 0.4rem;
+}
+.contanier section .top_middle .contentBox .list {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.contanier section .top_middle .contentBox .list .item {
+  width: 40%;
+  height: fit-content;
+}
+.contanier section .top_middle .contentBox .list .item p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.12rem;
+  color: #ea7918;
+}
+.contanier section .top_right .contentBox {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 10%;
+}
+.contanier section .top_right .contentBox .list {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.contanier section .top_right .contentBox .list .item {
+  font-size: 0.16rem;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contanier section .bottom_left {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.contanier section .bottom_left .rect_box4 {
+  width: 90%;
+  height: 80%;
+  border: 1px solid #333;
+  padding: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.12rem;
+}
+.contanier section .bottom_left .rect_box4 .rect_box2v {
+  width: 40%;
+  height: fit-content;
+  font-size: 0.08rem;
+}
+.contanier section .bottom_left .rect_box4 .rect_box2v > div {
+  border: 1px solid #333;
+}
+.contanier section .bottom_left .rect_box4 .rect_box2v > div:first-child {
+  border-bottom: 0;
+}
+.contanier section .bottom_left .contentBox {
+  width: 100%;
+  height: 84%;
+  border: 1px solid #333;
+  position: relative;
+  padding: 1%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.contanier section .bottom_left .contentBox .box1 {
+  width: 100%;
+  height: 20%;
+}
+.contanier section .bottom_left .contentBox .box1 .rows {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.contanier section .bottom_left .contentBox .box1 .rows .td1 {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contanier section .bottom_left .contentBox .box1 .rows .td1 .rect_box2h {
+  width: 90%;
+  height: 80%;
+  border: 1px solid #333;
+  padding: 2% 1%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contanier section .bottom_left .contentBox .box1 .rows .td1 .rect_box2h > div {
+  width: 45%;
+  border: 1px solid #333;
+  height: 85%;
+  font-size: 0.12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contanier section .bottom_left .contentBox .box1 .rows .td1 .rect_box2h > div:first-child {
+  border-right: 0;
+}
+.contanier section .bottom_left .contentBox .box1 .rows .td2 {
+  width: 15%;
+  height: 100%;
+  background: red;
+}
+.contanier section .bottom_left .contentBox .box1 .rows .td3 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contanier section .bottom_left .contentBox .box2 {
+  width: 100%;
+  height: 40%;
+}
+.contanier section .bottom_left .contentBox .box2 .rows {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.contanier section .bottom_left .contentBox .box2 .rows .td1 {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contanier section .bottom_left .contentBox .box2 .rows .td1 .rect_box5 {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #333;
+  padding: 1%;
+  font-size: 0.12rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.contanier section .bottom_left .contentBox .box2 .rows .td1 .rect_box5 > div {
+  width: 46%;
+  height: 20%;
+  border: 1px solid #333;
+}
+.contanier section .bottom_left .contentBox .box2 .rows .td1 .rect_box5 > div:nth-child(even) {
+  border-left: 0;
+}
+.contanier section .bottom_left .contentBox .box2 .rows .td1 .rect_box5 > div:last-child {
+  height: 30%;
+}
+.contanier section .bottom_left .contentBox .box2 .rows .td2 {
+  width: 15%;
+  height: 100%;
+  background: red;
+}
+.contanier section .bottom_left .contentBox .box2 .rows .td3 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.contanier section .bottom_left .contentBox .box2 .rows .td3 > div {
+  height: 50%;
+  width: 100%;
+}
+.contanier section .bottom_left .contentBox .box3 {
+  width: 100%;
+  height: 30%;
+}
+.contanier section .bottom_left .contentBox .box3 .rows {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.contanier section .bottom_left .contentBox .box3 .rows .td1 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.contanier section .bottom_left .contentBox .box3 .rows .td1 .arrow {
+  background: red;
+  width: 15%;
+}
+.contanier section .bottom_left .contentBox .box3 .rows .td1 > div:first-child {
+  height: 30%;
+  width: 30%;
+  background: #ccc;
+  border: 1px solid #333;
+}
+.contanier section .bottom_left .contentBox .box3 .rows .td2 {
+  width: 50%;
+  height: 100%;
+}
+.contanier section .bottom_left .contentBox .box3 .rows .td2 .rect5 {
+  width: 93%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1%;
+  box-sizing: border-box;
+  border: 1px solid #333;
+}
+.contanier section .bottom_left .contentBox .box3 .rows .td2 .rect5 .row1 {
+  height: 30%;
+  width: 100%;
+  font-size: 0.12rem;
+  display: flex;
+  justify-content: space-between;
+}
+.contanier section .bottom_left .contentBox .box3 .rows .td2 .rect5 .row1 > div {
+  display: flex;
+  align-items: center;
+  width: 33%;
+  height: 100%;
+  border: 1px solid #333;
+}
+.contanier section .bottom_left .contentBox .box3 .rows .td2 .rect5 .row1 > div > div {
+  width: 50%;
+  height: 100%;
+}
+.contanier section .bottom_left .contentBox .box3 .rows .td2 .rect5 .row1 > div > div:last-child {
+  border-left: 1px solid #333;
+}
+.contanier section .bottom_left .contentBox .box3 .rows .td2 .rect5 .row2 {
+  height: 40%;
+  width: 100%;
+  display: flex;
+}
+.contanier section .bottom_left .contentBox .box3 .rows .td2 .rect5 .row2 > div {
+  border: 1px solid #333;
+  flex: 1;
+}
+.contanier section .bottom_middle {
+  border: 1px solid #333;
+}
+.contanier section .bottom_middle .rows {
+  width: 100%;
+  height: 100%;
+}
+.contanier section .bottom_middle .rows .td1 {
+  height: 16%;
+  width: 100%;
+  background: skyblue;
+  border-left: 1px solid #333;
+  display: flex;
+  padding-top: 1%;
+  box-sizing: border-box;
+}
+.contanier section .bottom_middle .rows .td1 > div {
+  width: 6%;
+  height: 60%;
+  background: #ccc;
+  border: 1px solid #333;
+}
+.contanier section .bottom_middle .rows .td2 {
+  height: 30%;
+  width: 100%;
+  background: #ccc;
+}
+.contanier section .bottom_middle .rows .td3 {
+  height: 20%;
+  width: 100%;
+  background: #333;
+}
+.contanier section .bottom_middle .rows .td4 {
+  height: 30%;
+  width: 100%;
+  background: darkgoldenrod;
+}
+.contanier section .bottom_right {
+  background: green;
+}

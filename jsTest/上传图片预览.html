@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<body>
+  选择图片
+  <input type="file" accept="image/*" onchange="handleFile(this)" />
+  <br/>
+  <img style="width:200px;height:200px;">
+
+<br>
+选择视频
+<input type="file" accept="video/*" onchange="handleFile1(this)" />
+<br>
+
+<video src="" autoplay muted loop></video>
+  <script>
+    function handleFile(e) {
+      var file = e.files[0];
+      var blob = URL.createObjectURL(file);
+      var img = document.getElementsByTagName("img")[0];
+      img.src = blob;
+      img.onload = function(e) {
+        URL.revokeObjectURL(this.src); //释放createObjectURL创建得对象
+      }
+    }
+    function handleFile1(e) {
+      var file = e.files[0];
+      var blob = URL.createObjectURL(file);
+      var img = document.getElementsByTagName("video")[0];
+      img.src = blob;
+      img.onload = function(e) {
+        URL.revokeObjectURL(this.src); //释放createObjectURL创建得对象
+      }
+    }
+  </script>
+</body>
+</html>
